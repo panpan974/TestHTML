@@ -1,0 +1,122 @@
+.list {
+  display: flex;
+  overflow-x: scroll;
+
+  /* prevent accidentally going back or triggering other swipe events */
+  overscroll-behavior: contain;
+
+  /* hide scroll bar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* momentum scroll on iOS */
+  -webkit-overflow-scrolling: touch;
+
+  /* disable vertical scroll for touch */
+  touch-action: pan-x;
+
+  /* scroll snapping */
+  scroll-snap-type: x mandatory;
+}
+
+/* hide scroll bar */
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  height: 224px;
+  width: 100%;
+  flex-shrink: 0;
+
+  /* scroll snapping */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* 
+  The styling below is only for the decoration of this demo, 
+  it has no impact on scrolling or scroll behavior
+*/
+.indicatorsList,
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list {
+  border: 5px solid #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 1);
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: #fff;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.item:nth-child(4n + 1) {
+  background-color: #facd3d;
+}
+.item:nth-child(4n + 2) {
+  background-color: #5626c4;
+}
+.item:nth-child(4n + 3) {
+  background-color: #e60576;
+}
+.item:nth-child(4n + 4) {
+  background-color: #2cccc3;
+}
+
+.indicatorsList {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 1);
+}
+
+.indicator:not(:last-child) {
+  margin-right: 16px;
+}
+
+.indicator.active {
+  background-color: #e60576;
+}
+
+.viewport {
+  max-width: 420px;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Fredoka One", serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #181818;
+}
